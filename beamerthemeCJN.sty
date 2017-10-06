@@ -1,0 +1,104 @@
+%% 20171006 Personal Beamer Theme
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeCJN}
+
+%% Packages & Libraries
+\RequirePackage{tikz}
+\RequirePackage{pgfopts}
+\usetikzlibrary{calc,positioning}
+\RequirePackage{etoolbox}
+\RequirePackage{calc}
+\graphicspath{{\@graphicspath}{./logos/}}
+
+%% Macros
+\newcommand{\Filled}{
+	\begin{tikzpicture}[overlay, remember picture]
+		\draw [fill=maincolor] ($ (current page.north west) $) rectangle ($ (current page.south east) $);
+		\node[anchor=north west] (logo) at ($ (current page.north west) + (0em,0em)$) {
+			\includegraphics[height=40pt]{UofG}};
+	\end{tikzpicture}
+}
+
+\newcommand{\Unfilled}{
+	\begin{tikzpicture}[overlay, remember picture]
+		\draw [fill=white] ($ (current page.north west) $) rectangle ($ (current page.south east) $);
+	\end{tikzpicture}
+}
+
+\newcommand{\Framed}{
+	\begin{tikzpicture}[overlay, remember picture]
+		\draw [line width=10pt, maincolor] ($ (current page.north west) $) rectangle ($ (current page.south east) $);
+		\draw [fill=maincolor] ($ (current page.north west) $) rectangle ($ (current page.north east) - (0,50pt) $);
+		\node[anchor=north west] (logo) at ($ (current page.north west) + (0em,0em)$) {
+			\includegraphics[height=40pt]{UofG}};
+	\end{tikzpicture}
+}
+
+\newenvironment{LogoBar}{
+	\begin{tikzpicture}[overlay, remember picture, auto]
+		\draw [fill=white] ($ (current page.south west) + (0,5em) $) rectangle ($ (current page.south east) + (0,0) $);
+		\node[anchor=east] (Anchor) at ($ (current page.south east) + (-1em,2.5em)$) {};
+		\begin{scope}
+}{
+	\end{scope}
+	\end{tikzpicture}
+}
+
+% Set Page Framing
+\usebackgroundtemplate{
+	\Framed
+}
+
+\pgfkeys{/CJN/.cd,
+  .search also={
+    /CJN/inner,
+    /CJN/outer,
+    /CJN/color,
+  },
+  block/.code=\pgfkeysalso{
+    inner/block=#1,
+    color/block=#1,
+  },
+}
+
+\addtobeamertemplate{frametitle}{
+   \let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+   \let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+  \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+  \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+
+\useinnertheme{CJN}
+\useoutertheme{CJN}
+\usecolortheme{CJN}
+
+\AtEndPreamble{%
+  \@ifpackageloaded{pgfplots}{%
+	\usepgfplotslibrary{colorbrewer}
+  }{}
+}
+
+\def\@CJN@plaintitleformat#1{#1}
+
+\newcommand{\plain}[1]{%
+  \begingroup
+	% Background Colour
+    \usebackgroundtemplate{
+    	\Filled
+    }
+	% Text
+    \begin{frame}
+      \centering
+      \vfill
+      \vspace{1em}
+      \huge{\color{white}#1}
+      \vfill
+    \end{frame}
+  \endgroup
+}
+
+\ProcessPgfOptions{/CJN}
+\endinput

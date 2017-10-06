@@ -1,0 +1,64 @@
+\documentclass[11pt]{beamer}
+\usetheme{DBIL}
+
+%% Packages
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usepackage{siunitx}
+
+\usepackage{pdfpc-commands}%for pdfpc movies
+\usepackage{pdfpc-latex-notes/pdfpcnotes}%for pdfpc notes
+
+\graphicspath{{./images/}{./logos/}}
+
+%% Title Page Parameters
+\title{Demo Presentation}
+\subtitle{Consider This a Template}
+\date{\today}
+\author{A. Nonymous}
+\institute{Earth}
+\def\Bodies{ICG}%will pick and autoplace bodies from './logos/' folder
+
+%% Latin and Italicised Abbreviations
+\newcommand{\cf}{\textit{c.f.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\vs}{\textit{vs}}
+\newcommand{\Eg}{\textit{E.g.}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\etal}{\textit{et al.}}
+\newcommand{\apriori}{\textit{a priori}}
+\newcommand{\invivo}{\textit{in vivo}}
+\newcommand{\intoto}{\textit{in toto}}
+\newcommand{\invitro}{\textit{in vitro}}
+\newcommand{\nb}{\textbf{N.B.}}
+\newcommand{\No}{N\textsuperscript{\underline{o}}\xspace}
+\newcommand{\etc}{etc.}
+\newcommand{\exvivo}{\textit{ex vivo}}
+\newcommand{\insilico}{\textit{in silico}}
+
+\begin{document}
+
+%% Title Slide
+\maketitle
+
+\section{Background}%sections are automatically used as slide titles
+\begin{frame}
+  \begin{itemize}
+    \item Creates bullet points
+  \end{itemize}
+\end{frame}
+
+\section{Movies}
+\begin{frame}%adds a movie
+  \centering
+  \vfill
+  % \inlineMovie[loop&autostart]{./videos/177733-1.mov}{177733-1.jpg}{height=0.6\paperheight}
+  \vfill
+  See comments.
+\end{frame}
+
+\section{}
+\plain{Questions?}
+\end{document}

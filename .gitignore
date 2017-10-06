@@ -1,0 +1,13 @@
+*.pdf
+*.blg
+*.aux
+*.bbl
+*.log
+*.*backup
+*.*bak
+*.*~
+*.bak
+**/build/
+**/repository
+authorkit
+*.synctex.gz

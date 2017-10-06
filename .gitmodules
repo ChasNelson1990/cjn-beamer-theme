@@ -1,0 +1,3 @@
+[submodule "pdfpc-latex-notes"]
+	path = pdfpc-latex-notes
+	url = git@github.com:cebe/pdfpc-latex-notes.git

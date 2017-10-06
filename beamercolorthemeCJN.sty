@@ -1,0 +1,127 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamercolorthemeCJN}
+
+%% Colours
+\definecolor{maincolor}{HTML}{0d3158}%#003865
+\definecolor{black}{HTML}{321F20}%#321F20
+\definecolor{bdark2.1}{HTML}{1b9e77}%#1b9e77
+\definecolor{bdark2.1}{HTML}{d95f02}%#d95f02
+\definecolor{bdark2.1}{HTML}{7570b3}%#7570b3
+\definecolor{bdark2.1}{HTML}{e7298a}%#e7298a
+\definecolor{bdark2.1}{HTML}{66a61e}%#66a61e
+\definecolor{bdark2.1}{HTML}{e6ab02}%#e6ab02
+\definecolor{bdark2.1}{HTML}{a6761d}%#a6761d
+\definecolor{bdark2.1}{HTML}{666666}%#666666
+
+
+\pgfkeys{
+  /CJN/color/block/.cd,
+    .is choice,
+    transparent/.code=\@CJN@block@transparent,
+    fill/.code=\@CJN@block@fill,
+}
+
+\pgfkeys{
+  /CJN/color/background/.cd,
+    .is choice,
+    dark/.code=\@CJN@colors@dark,
+    light/.code=\@CJN@colors@light,
+}
+
+\newcommand{\@CJN@color@setdefaults}{
+  \pgfkeys{/CJN/color/.cd,
+    background=light,
+    block=transparent,
+  }
+}
+
+\newcommand{\@CJN@colors@dark}{
+  \setbeamercolor{normal text}{%
+    fg=white,
+    bg=maincolor
+  }
+}
+
+\newcommand{\@CJN@colors@light}{
+  \setbeamercolor{normal text}{%
+    fg=maincolor,
+    bg=white,
+  }
+}
+
+\setbeamercolor{palette primary}{%
+  fg=white,
+  bg=maincolor,
+}
+
+\setbeamercolor{titlelike}{%
+  fg=white,
+}
+
+\setbeamercolor{frametitle}{%
+  fg=white,
+}
+
+\setbeamercolor{section in toc}{%
+	fg=maincolor,
+}
+
+\setbeamercolor{item}{%
+	fg=maincolor,
+}
+
+\setbeamercolor{caption name}{%
+	fg=maincolor,
+}
+
+\setbeamercolor{bibliography entry author}{%
+	fg=maincolor,
+}
+
+\setbeamercolor{bibliography entry location}{%
+	fg=maincolor,
+}
+
+\setbeamercolor{bibliography entry title}{%
+	fg=maincolor,
+}
+
+\newcommand{\@CJN@block@transparent}{
+  \setbeamercolor{block title}{use=normal text, parent=normal text}
+}
+
+\newcommand{\@CJN@block@fill}{
+  \setbeamercolor{block title}{%
+    use=normal text,
+    fg=normal text.fg,
+    bg=normal text.bg!80!fg
+  }
+}
+
+\setbeamercolor{block title alerted}{%
+    use={block title, alerted text},
+    bg=block title.bg,
+    fg=alerted text.fg
+}
+
+\setbeamercolor{block title example}{%
+    use={block title, example text},
+    bg=block title.bg,
+    fg=example text.fg
+}
+
+\setbeamercolor{block body alerted}{use=block body, parent=block body}
+\setbeamercolor{block body example}{use=block body, parent=block body}
+\setbeamercolor{block body}{
+  use={block title, normal text},
+  bg=block title.bg!50!normal text.bg
+}
+
+\setbeamercolor{footnote}{fg=normal text.fg!90}
+\setbeamercolor{footnote mark}{fg=.}
+
+\@CJN@color@setdefaults
+
+\ProcessPgfPackageOptions{/CJN/color}
+\mode<all>
+\endinput
