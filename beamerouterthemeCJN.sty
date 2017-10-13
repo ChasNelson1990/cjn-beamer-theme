@@ -3,5 +3,19 @@
 
 \setbeamertemplate{navigation symbols}{}
 
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[sep=5pt,wd=\paperwidth]{footline}%
+    \hspace{5pt}
+    \usebeamerfont{author in head/foot}\usebeamercolor{author in head/foot}\insertshortauthor%
+    \hfill
+    \usebeamerfont{title in head/foot}\usebeamercolor{title in head/foot}\insertshorttitle%
+    \hfill
+    \usebeamerfont{page number in head/foot}\usebeamercolor{page number in head/foot}\insertpagenumber\,/\,\insertpresentationendpage%
+    \hspace{5pt}
+  \end{beamercolorbox}}%
+}
+
 \ProcessPgfPackageOptions{/CJN/outer}
 \endinput

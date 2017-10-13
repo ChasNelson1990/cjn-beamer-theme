@@ -1,0 +1,11 @@
+\ProvidesPackage{citegraphics}
+
+\usepackage{biblatex}%[backend=biber,style=nature]%numeric-comp
+
+\newcommand{\citegraphics}[2]{
+\includegraphics[#1]{#2}
+
+\vspace{10pt}
+
+\tiny{From:~\fullcite{#2}}}
+% Note that the image or pdf must have the same key as the citation and must be in the available graphics path

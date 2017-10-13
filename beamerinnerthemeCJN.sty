@@ -1,17 +1,20 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamerinnerthemeCJN}
 
+\makeatletter
+
 \setbeamertemplate{frametitle}{\vskip12.5pt\hskip50pt\insertframetitle}
 
 %% Title Page
 \setbeamertemplate{title page}{
 	\begingroup
+	% \setbeamertemplate{footline}{}
 	% Background
 	\usebackgroundtemplate{
 		\Filled
 	}
 	% Title Page
-	\begin{frame}
+	\begin{frame}[plain]
 	    \vfill%
 	    %Title
 	    \ifx\inserttitle\@empty\else{{%
@@ -169,20 +172,21 @@
 
 %% Contents
 \setbeamertemplate{section in toc}[sections numbered]
-% \makeatletter
 \patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
-% \makeatother
+
 
 %% Bibliography
 \setbeamertemplate{bibliography item}{
 	\begin{tikzpicture}
-		\fill[maincolor] (-0.1em,-0.1em) circle(0.2em);
+		\fill[maincolour] (-0.1em,-0.1em) circle(0.2em);
 	\end{tikzpicture}
 }
 
 \mode<all>
 \setlength{\parskip}{0.5em}
 \linespread{1.15}
+
+\makeatother
 
 \ProcessPgfPackageOptions{/CJN/inner}
 \endinput

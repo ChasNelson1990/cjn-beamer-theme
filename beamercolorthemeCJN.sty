@@ -2,7 +2,7 @@
 \ProvidesPackage{beamercolorthemeCJN}
 
 %% Colours
-\definecolor{maincolor}{HTML}{0d3158}%#003865
+\definecolor{maincolour}{HTML}{0d3158}%#003865
 \definecolor{black}{HTML}{321F20}%#321F20
 \definecolor{bdark2.1}{HTML}{1b9e77}%#1b9e77
 \definecolor{bdark2.1}{HTML}{d95f02}%#d95f02
@@ -38,20 +38,20 @@
 \newcommand{\@CJN@colors@dark}{
   \setbeamercolor{normal text}{%
     fg=white,
-    bg=maincolor
+    bg=maincolour
   }
 }
 
 \newcommand{\@CJN@colors@light}{
   \setbeamercolor{normal text}{%
-    fg=maincolor,
+    fg=maincolour,
     bg=white,
   }
 }
 
 \setbeamercolor{palette primary}{%
   fg=white,
-  bg=maincolor,
+  bg=maincolour,
 }
 
 \setbeamercolor{titlelike}{%
@@ -63,27 +63,27 @@
 }
 
 \setbeamercolor{section in toc}{%
-	fg=maincolor,
+	fg=maincolour,
 }
 
 \setbeamercolor{item}{%
-	fg=maincolor,
+	fg=maincolour,
 }
 
 \setbeamercolor{caption name}{%
-	fg=maincolor,
+	fg=maincolour,
 }
 
 \setbeamercolor{bibliography entry author}{%
-	fg=maincolor,
+	fg=maincolour,
 }
 
 \setbeamercolor{bibliography entry location}{%
-	fg=maincolor,
+	fg=maincolour,
 }
 
 \setbeamercolor{bibliography entry title}{%
-	fg=maincolor,
+	fg=maincolour,
 }
 
 \newcommand{\@CJN@block@transparent}{
@@ -115,6 +115,23 @@
 \setbeamercolor{block body}{
   use={block title, normal text},
   bg=block title.bg!50!normal text.bg
+}
+
+\setbeamercolor{footline}{%
+  bg=maincolour,
+  fg=white
+}
+\setbeamercolor{author in head/foot}{%
+  fg=fg!50!bg
+}
+\setbeamercolor{title in head/foot}{%
+  fg=fg!50!bg
+}
+\setbeamercolor{date in head/foot}{%
+  fg=fg!50!bg
+}
+\setbeamercolor{page number in head/foot}{%
+  fg=green
 }
 
 \setbeamercolor{footnote}{fg=normal text.fg!90}

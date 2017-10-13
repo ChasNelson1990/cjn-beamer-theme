@@ -8,12 +8,11 @@
 \usetikzlibrary{calc,positioning}
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
-\graphicspath{{\@graphicspath}{./logos/}}
 
 %% Macros
 \newcommand{\Filled}{
 	\begin{tikzpicture}[overlay, remember picture]
-		\draw [fill=maincolor] ($ (current page.north west) $) rectangle ($ (current page.south east) $);
+		\draw [fill=maincolour] ($ (current page.north west) $) rectangle ($ (current page.south east) $);
 		\node[anchor=north west] (logo) at ($ (current page.north west) + (0em,0em)$) {
 			\includegraphics[height=40pt]{UofG}};
 	\end{tikzpicture}
@@ -27,10 +26,11 @@
 
 \newcommand{\Framed}{
 	\begin{tikzpicture}[overlay, remember picture]
-		\draw [line width=10pt, maincolor] ($ (current page.north west) $) rectangle ($ (current page.south east) $);
-		\draw [fill=maincolor] ($ (current page.north west) $) rectangle ($ (current page.north east) - (0,50pt) $);
+		\draw [line width=10pt, maincolour] ($ (current page.north west) $) rectangle ($ (current page.south east) $);%frame
+		\draw [fill=maincolour] ($ (current page.north west) $) rectangle ($ (current page.north east) - (0,50pt) $);%top
 		\node[anchor=north west] (logo) at ($ (current page.north west) + (0em,0em)$) {
-			\includegraphics[height=40pt]{UofG}};
+			\includegraphics[height=40pt]{UofG}};%logo
+		% \draw [fill=maincolour] ($ (current page.south west) $) rectangle ($ (current page.south east) + (0,10pt) $);%bottom
 	\end{tikzpicture}
 }
 
@@ -61,19 +61,19 @@
   },
 }
 
+% Automatic titles based on sections
 \addtobeamertemplate{frametitle}{
    \let\insertframetitle\insertsectionhead}{}
 \addtobeamertemplate{frametitle}{
    \let\insertframesubtitle\insertsubsectionhead}{}
 
-\makeatletter
-  \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
-  \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
-\makeatother
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
 
-\useinnertheme{CJN}
-\useoutertheme{CJN}
-\usecolortheme{CJN}
+% these assume that the file has been loaded as a submodule with the name cjn-beamer-theme
+\usepackage{cjn-beamer-theme/beamerinnerthemeCJN}%\useinnertheme{CJN}
+\usepackage{cjn-beamer-theme/beamerouterthemeCJN}%\useoutertheme{CJN}
+\usepackage{cjn-beamer-theme/beamercolorthemeCJN}%\usecolortheme{CJN}
 
 \AtEndPreamble{%
   \@ifpackageloaded{pgfplots}{%
