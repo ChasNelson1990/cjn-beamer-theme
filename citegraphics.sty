@@ -1,11 +1,39 @@
 \ProvidesPackage{citegraphics}
 
 \usepackage{biblatex}%[backend=biber,style=nature]%numeric-comp
+\usepackage{setspace}
 
-\newcommand{\citegraphics}[2]{
-\includegraphics[#1]{#2}
+%% Fbox settings for highlighting image boundaries
+\setlength{\fboxsep}{0pt}%
+\setlength{\fboxrule}{0pt}%
 
-\vspace{10pt}
-
-\tiny{From:~\fullcite{#2}}}
 % Note that the image or pdf must have the same key as the citation and must be in the available graphics path
+\newcommand{\citegraphics}[2]{
+\begin{center}
+  \fbox{\includegraphics[#1]{#2}}
+\end{center}
+
+\begin{spacing}{0.5}
+  \tiny{From:~\fullcite{#2}}
+\end{spacing}
+}
+
+\newcommand{\sitegraphics}[3]{
+\begin{center}
+  \fbox{\includegraphics[#1]{#2}}
+\end{center}
+
+\begin{spacing}{0.5}
+  \tiny{From:~\href{https://#3}{#3}}
+\end{spacing}
+}
+
+\newcommand{\thankgraphics}[3]{
+\begin{center}
+  \fbox{\includegraphics[#1]{#2}}
+\end{center}
+
+\begin{spacing}{0.5}
+  \tiny{Thanks to:~{#3}}
+\end{spacing}
+}

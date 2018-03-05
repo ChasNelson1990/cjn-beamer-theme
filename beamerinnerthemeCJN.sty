@@ -3,7 +3,15 @@
 
 \makeatletter
 
-\setbeamertemplate{frametitle}{\vskip12.5pt\hskip50pt\insertframetitle}
+% Section Slides
+\AtBeginSection[]{
+	\plain{\insertsectionhead}
+}
+\newcommand{\@CJN@sectionpage@none}{
+  \AtBeginSection{
+    % intenionally empty
+  }
+}
 
 %% Title Page
 \setbeamertemplate{title page}{
@@ -148,12 +156,6 @@
 
 \def\makeacknowledgements{%
   \usebeamertemplate{acknowledgements page}
-}
-
-\newcommand{\@CJN@sectionpage@none}{
-  \AtBeginSection{
-    % intenionally empty
-  }
 }
 
 \setlength{\leftmargini}{1em}

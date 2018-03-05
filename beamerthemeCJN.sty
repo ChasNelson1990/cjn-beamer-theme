@@ -61,12 +61,8 @@
   },
 }
 
-% Automatic titles based on sections
-\addtobeamertemplate{frametitle}{
-   \let\insertframetitle\insertsectionhead}{}
-\addtobeamertemplate{frametitle}{
-   \let\insertframesubtitle\insertsubsectionhead}{}
-
+% Automatic titles based on subsection
+\setbeamertemplate{frametitle}{\vskip7.5pt\hskip50pt\insertsubsectionhead\vskip12.5pt}
 \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
 \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
 
@@ -94,7 +90,7 @@
       \centering
       \vfill
       \vspace{1em}
-      \huge{\color{white}#1}
+      \Huge{\color{white}#1}
       \vfill
     \end{frame}
   \endgroup
